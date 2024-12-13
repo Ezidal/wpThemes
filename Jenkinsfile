@@ -1,29 +1,16 @@
+
 pipeline {
     agent {
-        label 'ubuntu'
+        label 'ssh_agent'
     }
     stages {
-        stage('Расшифровка envvvv') {
+        stage('Prepare Remote Environment') {
             steps {
-                script {
-                    sh 'make decrypt'
+                sshagent(credentials : ['vanya_777']) {
+                    sh 'ssh -o StrictHostKeyChecking=no jenkins@192.168.4.92 cd wpthemes'
                 }
             }
-        }
-        stage('Расчищаем платформу от старичков') {
-            steps {
-                script {
-                    sh 'make down'
-                }
-            }
-        }
-        stage('Запускаем новых ребят') {
-            steps {
-                script {
-                    sh 'make up'
-                }
-            }
-        }
+        }    
     }
     post {
         always {
