@@ -50,8 +50,6 @@ services:
     networks:
       - wp_db_rd
       - universal
-    depends_on:
-      - promtail
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 3s
@@ -93,8 +91,6 @@ services:
       - ./redis/redis.conf:/data/redis.conf
     networks:
       - wp_db_rd
-    depends_on:
-      - promtail
 
   keycloak:
     image: quay.io/keycloak/keycloak:23.0.7
