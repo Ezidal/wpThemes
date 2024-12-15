@@ -4,10 +4,10 @@ pipeline {
         label 'ssh_agent'
     }
     stages {
-        stage('Prepare Remote Environment') {
+        stage('Переразворот вордпресс') {
             steps {
-                sshagent(credentials : ['vanya_777']) {
-                    sh 'ssh -o StrictHostKeyChecking=no jenkins@${HOST} "cd wpthemes; make down; git pull ;make up"'
+                sshagent(credentials : ['connect_server']) {
+                    sh 'ssh -o StrictHostKeyChecking=no ${USER}@${HOST} "cd wpthemes; make down; git pull ;make up"'
                 }
             }
         }    
