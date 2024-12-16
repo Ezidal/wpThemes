@@ -6,10 +6,6 @@ up:
 login:
 	docker exec wordpress /bin/sh -c "\
 		docker-entrypoint.sh apache2-foreground & \
-		sleep 7 && \
-		curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
-		chmod +x wp-cli.phar && \
-		mv wp-cli.phar /usr/local/bin/wp && \
 		wp core install --url=localhost --title=\"site\" --admin_user=test --admin_password=\"test\" --admin_email=test@test.test --allow-root && \
 		echo 'Установка плагина Redis...' && \
 		wp plugin install redis-cache --activate --allow-root && \
