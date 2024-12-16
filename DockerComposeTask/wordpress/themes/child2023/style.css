@@ -1,0 +1,18 @@
+/*
+Theme Name: Twenty Twenty-Three Child
+Theme URI: https://example.com
+Author: Ваше имя
+Author URI: https://example.com
+Description: Дочерняя тема для Twenty Twenty-Three.
+Template: twentytwentythree
+Version: 1.0
+*/
+
+@import url("../twentytwentythree/style.css");
+body {
+    background-color: #000000; /* Пример изменения фона */
+}
+
+h1 {
+    color: red; /* Изменение цвета заголовков h1 */
+}
