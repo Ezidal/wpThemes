@@ -16,12 +16,12 @@ pipeline {
         success {
             mail to: "sergey.efimov@umbrellait.com",
                  subject: "Автоматическое оповещение о запуске wordpress после изменений",
-                 body: "ну все, вордресс запускается уже в $BUILD_ID раз и очень даже неплохо"
+                 body: "Ну все, вордресс запускается уже в $BUILD_ID раз и очень даже неплохо"
         }
         failure {
             mail to: "sergey.efimov@umbrellait.com",
                  subject: "Автоматическое оповещение о плохом запуске wordpress после изменений",
-                 body: "ну все, вордресс запускается уже в $BUILD_ID раз и в этот раз плохо"
+                 body: "Ну все, вордресс запускается уже в $BUILD_ID раз и в этот раз плохо"
         }
     }
 }
